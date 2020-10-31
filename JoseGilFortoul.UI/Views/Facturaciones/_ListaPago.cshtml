@@ -1,0 +1,48 @@
+﻿@model List<JoseGilFortoul.Models.PagoDetallado>
+<div class="">
+    <div class="col-md-12 col-xs-12">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>Detalle de Pagos</h2>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <br />
+                <div class="x_content">
+                    <div class="table-responsive">
+                        @if (Model.Count > 0)
+                        {
+                            <table class="table table-striped jambo_table bulk_action">
+                                @foreach (var item in Model)
+                                {
+                                    <tbody class="table table-striped jambo_table bulk_action">
+                                        <tr class="even pointer">
+                                            <td class=" ">Forma de pago:</td>
+                                            <td class=" ">@item.FormaPago.Tipo</td>
+                                            <td class=" ">Referencia:</td>
+                                            <td class=" ">@item.Referencia</td>
+                                            <td class=" ">Monto:</td>
+                                            <td class=" " style="text-align: right;">@item.Monto.ToString("N")</td>
+                                            <td class="last"><a href="@Url.Action("EliminarPago", "Facturaciones", new { id = item.Id })" style="margin-left: 3px; margin-right: 3px;"><i class="fa fa-trash-o"></i></a></td>
+                                        </tr>
+                                    </tbody>
+                                }
+                                <tr>
+                                    <td class=" " colspan="5" style="text-align: right;">Total de pago:</td>
+                                    <td class=" " style="text-align: right;">@ViewBag.Total</td>
+                                    <td class=" "></td>
+                                </tr>
+                            </table>
+                            <a href="@Url.Action("Pagar", "Facturaciones")" class="btn btn-primary pull-right" style="margin-top: 50px;">Pagar</a>
+                            <a href="@Url.Action("Index", "Home")" class="btn btn-warning pull-right" style="margin-top: 50px;">Volver</a>
+                        }
+                        else
+                        {
+                            <h3>No posee formas pagos agregadas</h3>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

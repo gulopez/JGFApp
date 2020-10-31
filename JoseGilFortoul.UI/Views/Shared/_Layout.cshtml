@@ -1,0 +1,247 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>@ViewBag.Title | Colegion Jose Gil Fortoul</title>
+
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/Content/nprogress.css" rel="stylesheet">
+    <!-- iCheck -->
+    <link href="../vendors/iCheck/skins/flat/green.css" rel="stylesheet">
+    <link href="~/Content/switchery.min.css" rel="stylesheet" />
+    <link href="~/Content/daterangepicker.css" rel="stylesheet" />
+    <link href="~/Content/Custom/css/custom.min.css" rel="stylesheet" />
+</head>
+
+<body class="nav-md">
+    <div class="container body">
+        <div class="main_container">
+            <div class="col-md-3 left_col">
+                <div class="left_col scroll-view">
+                    <div class="profile clearfix">
+                        <div class="profile_pic">
+                            <img src="~/Images/user.png" alt="..." class="img-circle profile_img">
+                        </div>
+                        <div class="profile_info">
+                            <span>Bienvenid&#64;,</span>
+                            <h2>@ViewData["Usuario"]</h2>
+                        </div>
+                    </div>
+
+                    <br />
+
+                    <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+                        <div class="menu_section">
+                            <ul class="nav side-menu">
+                                <li>
+                                    <a><i class="fa fa-pencil-square"></i> Inscripciones <span class="fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu">
+                                        @if (ViewData["Perfil"].ToString() == "Representante" && ViewData["CardID"].ToString() != "")
+                                        {
+                                            <li><a href="@Url.Action("CuposSolicitados", "Inscripciones")">Solicitar Cupo</a></li>
+                                            <li><a href="@Url.Action("Index", "Inscripciones")">Preinscripciones</a></li>
+                                            <li><a href="#">Imprimir Planilla De inscripción</a></li>
+                                            <li><a href="#">Imprimir Contrato de Servicio</a></li>
+                                        }
+
+                                        @if (ViewData["Perfil"].ToString() == "Administrador")
+                                        {
+                                            <li><a href="@Url.Action("CuposSolicitados", "Inscripciones")">Solicitud de Cupos</a></li>
+                                            <li><a href="@Url.Action("Index", "Inscripciones")">Procesar Preinscripciones</a></li>
+                                            <li><a href="@Url.Action("Inscripcion", "Inscripciones")">Procesar Inscripciones</a></li>
+                                            <li><a href="#">Asignar Sección Escolar</a></li>
+                                            <li><a href="#">Imprimir Contrato de Servicio</a></li>
+                                            <li><a href="#">Reporte de Preinscripciones</a></li>
+                                            <li><a href="#">Reporte de Inscripciones</a></li>
+                                            <li><a href="#">Reporte de Alumnos por Inscripción</a></li>
+                                        }
+                                    </ul>
+                                </li>
+                                <li>
+                                    @if (ViewData["Perfil"].ToString() == "Representante" && ViewData["CardID"].ToString() != "")
+                                    {
+                                        <a><i class="fa fa-group"></i> Alumnos <span class="fa fa-chevron-down"></span></a>
+                                        <ul class="nav child_menu">
+                                            <li><a href="@Url.Action("Index", "Alumnos")">Editar Datos Alumnos</a></li>
+                                        </ul>
+                                    }
+                                </li>
+                                <li>
+                                    @if (ViewData["Perfil"].ToString() == "Representante" && ViewData["CardID"].ToString() != "")
+                                    {
+                                        <a><i class="fa fa-money"></i> Facturación <span class="fa fa-chevron-down"></span></a>
+                                        <ul class="nav child_menu">
+                                            <li><a href="@Url.Action("RealizarPago", "Facturaciones")">Realizar Pagos</a></li>
+                                            <li><a href="@Url.Action("DetallePagos", "Facturaciones")">Ver Historial de Pagos</a></li>
+                                            <li><a href="#">Imprimir Facturas</a></li>
+                                        </ul>
+                                    }
+
+                                    @if (ViewData["Perfil"].ToString() == "Administrador")
+                                    {
+                                        <a><i class="fa fa-money"></i> Facturación <span class="fa fa-chevron-down"></span></a>
+                                        <ul class="nav child_menu">
+                                            <li><a href="@Url.Action("VerificarPago", "Facturaciones")">Verificar Pagos</a></li>
+                                            <li><a href="#">Reporte de Morosos</a></li>
+                                            <li><a href="#">Cierre de Caja</a></li>
+                                            <li><a href="#">Imprimir Factura</a></li>
+                                            <li><a href="#">Anular/Sustituir Factura</a></li>
+                                            <li><a href="#">Arreglo de Pagos</a></li>
+                                            <li><a href="#">Reporte de Libro Diario</a></li>
+                                            <li><a href="#">Reporte de Alumno-Libro Diario</a></li>
+                                            <li><a href="#">Reporte de Pagos</a></li>
+                                            <li><a href="#">Reporte de Solventes</a></li>
+                                            <li><a href="#">Reporte de Insolventes</a></li>
+                                            <li><a href="#">Reporte de Mora por Mes</a></li>
+                                        </ul>
+                                    }
+                                </li>
+                                @if (ViewData["Perfil"].ToString() == "Administrador")
+                                {
+                                    <li>
+                                        <a><i class="fa fa-tasks"></i> Administración <span class="fa fa-chevron-down"></span></a>
+                                        <ul class="nav child_menu">
+                                            <li><a href="#">Costo Anual</a></li>
+                                            <li><a href="#">Período Escolar</a></li>
+                                            <li><a href="#">Cierre de Caja</a></li>
+                                        </ul>
+                                    </li>
+                                }
+                                <li>
+                                    <a><i class="fa fa-user"></i> Mi Cuenta <span class="fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu">
+                                        <li><a href="@Url.Action("UpdateRepresentative", "Cuentas")">Actualizar Perfil del Representante</a></li>
+                                        <li><a href="@Url.Action("ChangePassword", "Cuentas")">Cambiar contraseña</a></li>
+                                        <li><a href="#">Configuraciones Adicionales</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                        @if (ViewData["Perfil"].ToString() == "Administrador")
+                        {
+                            <div class="menu_section">
+                                <h3>Configuración</h3>
+                                <ul class="nav side-menu">
+                                    <li>
+                                        <a><i class="fa fa-user-circle-o"></i> Administrar Usuario <span class="fa fa-chevron-down"></span></a>
+                                        <ul class="nav child_menu">
+                                            <li><a href="#">Usuario</a></li>
+                                            <li><a href="#">Perfil</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+
+            <div class="top_nav">
+                <div class="nav_menu">
+                    <nav>
+                        <div class="nav toggle">
+                            <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+                        </div>
+
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="">
+                                <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                    <img src="~/Images/user.png" alt="">@ViewData["Usuario"]
+                                    <span class=" fa fa-angle-down"></span>
+                                </a>
+                                <ul class="dropdown-menu dropdown-usermenu pull-right">
+                                    <li><a href="@Url.Action("Logout", "Login")"><i class="fa fa-sign-out pull-right"></i> Cerrar Sesión</a></li>
+                                </ul>
+                            </li>
+                            @if (ViewData["Perfil"].ToString() == "Representante")
+                            {
+                                    <li role="presentation" class="dropdown">
+                                        <a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
+                                            <i class="fa fa-credit-card"></i>
+                                            @if (Convert.ToInt32(ViewData["ShoppingCar"]) > 0)
+                                            {
+                                                <span class="badge bg-red">@Convert.ToInt32(ViewData["ShoppingCar"])</span>
+                                            }
+                                        </a>
+                                        <ul id="menu1" class="dropdown-menu list-unstyled msg_list" role="menu">
+                                            @if (Convert.ToInt32(ViewData["ShoppingCar"]) > 0)
+                                            {
+                                                foreach (var item in ViewBag.Carrito)
+                                                {
+                                                    <li>
+                                                        <a>
+                                                            <span>
+                                                                <span>Alumno: <b>@item.Alumno.PrimerNombre @item.Alumno.PrimerApellido</b></span>
+                                                            </span>
+                                                            @if (@item.MesEscolar == null)
+                                                            {
+                                                                <span class="message">
+                                                                    @item.ConceptoPago.Nombre - @item.PeriodoEscolar.Periodo - @item.MontoPagar
+                                                                </span>
+                                                            }
+                                                            else
+                                                            {
+                                                                <span class="message">
+                                                                    @item.ConceptoPago.Nombre (@item.MesEscolar.Mes) - @item.PeriodoEscolar.Periodo - @item.MontoPagar
+                                                                </span>
+                                                            }
+                                                        </a>
+                                                    </li>
+                                                }
+                                                <li>
+                                                    <div class="text-center">
+                                                        <a href="@Url.Action("PagarCarrito", "Facturaciones")" class="btn btn-primary">Pagar</a>
+                                                    </div>
+                                                </li>
+                                            }
+                                            else
+                                            {
+                                                <li>
+                                                    <a>
+                                                        <span class="message">
+                                                            No posee pagos agregados al carrito
+                                                        </span>
+                                                    </a>
+                                                </li>
+                                            }
+                                        </ul>
+                                    </li>
+                            }
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+
+            @RenderBody()
+
+            <footer>
+                <div class="pull-right">
+                    <i class="fa fa-graduation-cap"></i> <span>Colegio Jose Gil Fortoul</span>
+                </div>
+                <div class="clearfix"></div>
+            </footer>
+        </div>
+    </div>
+
+    <script src="~/Scripts/jquery-2.2.3.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/fastclick.js"></script>
+    <script src="~/Scripts/nprogress.min.js"></script>
+    <!-- iCheck -->
+    <script src="../vendors/iCheck/icheck.min.js"></script>
+    <script src="~/Scripts/moment.min.js"></script>
+    <script src="~/Scripts/daterangepicker.js"></script>
+    <script src="~/Scripts/bootstrap-tagsinput.min.js"></script>
+    <script src="~/Scripts/switchery.min.js"></script>
+    <script src="~/Scripts/Autosize/autosize.min.js"></script>
+    <script src="~/Scripts/jquery.smartWizard.js"></script>
+    <script src="~/Content/Custom/js/custom.min.js"></script>
+    <script src="~/Scripts/script.js"></script>
+
+</body>
+</html>

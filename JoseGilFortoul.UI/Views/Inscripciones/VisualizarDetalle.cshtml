@@ -1,0 +1,628 @@
+﻿@model JoseGilFortoul.Models.Alumno
+@{
+    ViewBag.Title = "VisualizarDetalle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="right_col" role="main">
+    <div class="">
+        <div class="clearfix"></div>
+        <div class="">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                    <div class="x_title">
+                        <h2>Datos de la Solicitud</h2>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content">
+                        <div class="" role="tabpanel" data-example-id="togglable-tabs">
+                            <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
+                                <li role="presentation" class="active">
+                                    <a href="#tab_content1" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">Datos Alumno</a>
+                                </li>
+                                <li role="presentation" class="">
+                                    <a href="#tab_content2" role="tab" id="profile-tab" data-toggle="tab" aria-expanded="false">Datos Padres</a>
+                                </li>
+                                <li role="presentation" class="">
+                                    <a href="#tab_content3" role="tab" id="profile-tab2" data-toggle="tab" aria-expanded="false">Escolaridad</a>
+                                </li>
+                                <li role="presentation" class="">
+                                    <a href="#tab_content4" role="tab" id="profile-tab3" data-toggle="tab" aria-expanded="false">Datos Médicos</a>
+                                </li>
+                                <li role="presentation" class="">
+                                    <a href="#tab_content5" role="tab" id="profile-tab4" data-toggle="tab" aria-expanded="false">Datos Familiares</a>
+                                </li>
+                            </ul>
+                            <div id="myTabContent" class="tab-content">
+                                <div role="tabpanel" class="tab-pane fade active in" id="tab_content1" aria-labelledby="home-tab">
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.PrimerNombre, new { @class = "control-label col-md-3 col-sm-3 col-xs-12" })
+                                        <div class="col-md-3 col-sm-3 col-xs-12">
+                                            <label class="control-label" style="color: black">@Model.PrimerNombre</label>
+                                        </div>
+                                        @Html.LabelFor(model => model.SegundoNombre, new { @class = "control-label col-md-3 col-sm-3 col-xs-12" })
+                                        <div class="col-md-3 col-sm-3 col-xs-12">
+                                            @if (Model.SegundoNombre == null)
+                                            {
+                                                <label class="control-label" style="color: black">-</label>
+                                            }
+                                            else
+                                            {
+                                                <label class="control-label" style="color: black">@Model.SegundoNombre</label>
+                                            }
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.PrimerApellido, new { @class = "control-label col-md-3 col-sm-3 col-xs-12" })
+                                        <div class="col-md-3 col-sm-3 col-xs-12">
+                                            <label class="control-label" style="color: black">@Model.PrimerApellido</label>
+                                        </div>
+                                        @Html.LabelFor(model => model.SegundoApellido, new { @class = "control-label col-md-3 col-sm-3 col-xs-12" })
+                                        <div class="col-md-3 col-sm-3 col-xs-12">
+                                            @if (Model.SegundoApellido == null)
+                                            {
+                                                <label class="control-label" style="color: black">-</label>
+                                            }
+                                            else
+                                            {
+                                                <label class="control-label" style="color: black">@Model.SegundoApellido</label>
+                                            }                                            
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.CedulaAlumno, new { @class = "control-label col-md-3 col-sm-3 col-xs-12" })
+                                        <div class="col-md-3 col-sm-3 col-xs-12">
+                                            @if (Model.CedulaAlumno == null)
+                                            {
+                                                <label class="control-label" style="color: black">-</label>
+                                            }
+                                            else
+                                            {
+                                                <label class="control-label" style="color: black">@Model.CedulaAlumno</label>
+                                            }                                            
+                                        </div>
+                                        @Html.LabelFor(model => model.CarnetEstudiante, new { @class = "control-label col-md-3 col-sm-3 col-xs-12" })
+                                        <div class="col-md-3 col-sm-3 col-xs-12">
+                                            @if (Model.CarnetEstudiante == null)
+                                            {
+                                                <label class="control-label" style="color: black">-</label>
+                                            }
+                                            else
+                                            {
+                                                <label class="control-label" style="color: black">@Model.CarnetEstudiante</label>
+                                            }
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.FechaDeNacimiento, new { @class = "control-label col-md-3 col-sm-3 col-xs-12" })
+                                        <div class="col-md-3 col-sm-3 col-xs-12">
+                                            <label class="control-label" style="color: black">@Model.FechaDeNacimiento.ToShortDateString()</label>
+                                        </div>
+                                        @Html.LabelFor(model => model.PaisDeNacimiento, new { @class = "control-label col-md-3 col-sm-3 col-xs-12" })
+                                        <div class="col-md-3 col-sm-3 col-xs-12">
+                                            <label class="control-label" style="color: black">@Model.PaisDeNacimiento</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.EstadoDeNacimiento, new { @class = "control-label col-md-3 col-sm-3 col-xs-12" })
+                                        <div class="col-md-3 col-sm-3 col-xs-12">
+                                            <label class="control-label" style="color: black">@Model.EstadoDeNacimiento</label>
+                                        </div>
+                                        @Html.LabelFor(model => model.LugardeNacimiento, new { @class = "control-label col-md-3 col-sm-3 col-xs-12" })
+                                        <div class="col-md-3 col-sm-3 col-xs-12">
+                                            <label class="control-label" style="color: black">@Model.LugardeNacimiento</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.Email, new { @class = "control-label col-md-3 col-sm-3 col-xs-12" })
+                                        <div class="col-md-3 col-sm-3 col-xs-12">
+                                            <label class="control-label" style="color: black">@Model.Email</label>
+                                        </div>
+                                        @Html.LabelFor(model => model.Sexo, new { @class = "control-label col-md-3 col-sm-3 col-xs-12" })
+                                        <div class="col-md-3 col-sm-3 col-xs-12">
+                                            <label class="control-label" style="color: black">@Model.Sexo</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.Direccion.Urbanizacion, new { @class = "control-label col-md-3 col-sm-3 col-xs-12" })
+                                        <div class="col-md-3 col-sm-3 col-xs-12">
+                                            <label class="control-label" style="color: black">@Model.Direccion.Urbanizacion</label>
+                                        </div>
+                                        @Html.LabelFor(model => model.Direccion.Sector, new { @class = "control-label col-md-3 col-sm-3 col-xs-12" })
+                                        <div class="col-md-3 col-sm-3 col-xs-12">
+                                            <label class="control-label" style="color: black">@Model.Direccion.Sector</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.Direccion.Linea1, new { @class = "control-label col-md-3 col-sm-3 col-xs-12" })
+                                        <div class="col-md-3 col-sm-3 col-xs-12">
+                                            <label class="control-label" style="color: black">@Model.Direccion.Linea1</label>
+                                        </div>
+                                        @Html.LabelFor(model => model.Direccion.Linea2, new { @class = "control-label col-md-3 col-sm-3 col-xs-12" })
+                                        <div class="col-md-3 col-sm-3 col-xs-12">
+                                            @if (Model.Direccion.Linea2 == null)
+                                            {
+                                                <label class="control-label" style="color: black">-</label>
+                                            }
+                                            else
+                                            {
+                                                <label class="control-label" style="color: black">@Model.Direccion.Linea2</label>
+                                            }                                            
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.Direccion.Ciudad, new { @class = "control-label col-md-3 col-sm-3 col-xs-12" })
+                                        <div class="col-md-3 col-sm-3 col-xs-12">
+                                            <label class="control-label" style="color: black">@Model.Direccion.Ciudad</label>
+                                        </div>
+                                        @Html.LabelFor(model => model.Direccion.EstadoProvincia.Pais.Nombre, new { @class = "control-label col-md-3 col-sm-3 col-xs-12" })
+                                        <div class="col-md-3 col-sm-3 col-xs-12">
+                                            <label class="control-label" style="color: black">@Model.Direccion.EstadoProvincia.Pais.Nombre</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.Direccion.EstadoProvincia.Nombre, new { @class = "control-label col-md-3 col-sm-3 col-xs-12" })
+                                        <div class="col-md-3 col-sm-3 col-xs-12">
+                                            <label class="control-label" style="color: black">@Model.Direccion.EstadoProvincia.Nombre</label>
+                                        </div>
+                                        @Html.LabelFor(model => model.Direccion.CodigoPostal, new { @class = "control-label col-md-3 col-sm-3 col-xs-12" })
+                                        <div class="col-md-3 col-sm-3 col-xs-12">
+                                            @if (Model.Direccion.CodigoPostal == null)
+                                            {
+                                                <label class="control-label" style="color: black">-</label>
+                                            }
+                                            else
+                                            {
+                                                <label class="control-label" style="color: black">@Model.Direccion.CodigoPostal</label>
+                                            }                                            
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.Telefono, new { @class = "control-label col-md-3 col-sm-3 col-xs-12" })
+                                        <div class="col-md-3 col-sm-3 col-xs-12">
+                                            <label class="control-label" style="color: black">@Model.Telefono</label>
+                                        </div>
+                                        @Html.LabelFor(model => model.TelefonoAdicional, new { @class = "control-label col-md-3 col-sm-3 col-xs-12" })
+                                        <div class="col-md-3 col-sm-3 col-xs-12">
+                                            @if (Model.TelefonoAdicional == null)
+                                            {
+                                                <label class="control-label" style="color: black">-</label>
+                                            }
+                                            else
+                                            {
+                                                <label class="control-label" style="color: black">@Model.TelefonoAdicional</label>
+                                            }
+                                        </div>
+                                    </div>
+                                </div>
+                                <div role="tabpanel" class="tab-pane fade" id="tab_content2" aria-labelledby="profile-tab">
+                                    <h4>Padre</h4>
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.Padre.PrimerNombre, new { @class = "control-label col-md-3 col-sm-3 col-xs-12" })
+                                        <div class="col-md-3 col-sm-3 col-xs-12">
+                                            <label class="control-label" style="color: black">@Model.Padre.PrimerNombre</label>
+                                        </div>
+                                        @Html.LabelFor(model => model.Padre.SegundoNombre, new { @class = "control-label col-md-3 col-sm-3 col-xs-12" })
+                                    <div class="col-md-3 col-sm-3 col-xs-12">
+                                        @if (Model.Padre.SegundoNombre == null)
+                                        {
+                                            <label class="control-label" style="color: black">-</label>
+                                        }
+                                        else
+                                        {
+                                            <label class="control-label" style="color: black">@Model.Padre.SegundoNombre</label>
+                                        }                                        
+                                    </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.Padre.PrimerApellido, new { @class = "control-label col-md-3 col-sm-3 col-xs-12" })
+                                        <div class="col-md-3 col-sm-3 col-xs-12">
+                                            <label class="control-label" style="color: black">@Model.Padre.PrimerApellido</label>
+                                        </div>
+                                        @Html.LabelFor(model => model.Padre.SegundoApellido, new { @class = "control-label col-md-3 col-sm-3 col-xs-12" })
+                                    <div class="col-md-3 col-sm-3 col-xs-12">
+                                        @if (Model.Padre.SegundoApellido == null)
+                                        {
+                                            <label class="control-label" style="color: black">-</label>
+                                        }
+                                        else
+                                        {
+                                            <label class="control-label" style="color: black">@Model.Padre.SegundoApellido</label>
+                                        }
+                                    </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.Padre.CedulaRepresentante, new { @class = "control-label col-md-3 col-sm-3 col-xs-12" })
+                                        <div class="col-md-3 col-sm-3 col-xs-12">
+                                            <label class="control-label" style="color: black">@Model.Padre.CedulaRepresentante</label>
+                                        </div>
+                                        @Html.LabelFor(model => model.Padre.Email, new { @class = "control-label col-md-3 col-sm-3 col-xs-12" })
+                                        <div class="col-md-3 col-sm-3 col-xs-12">
+                                            <label class="control-label" style="color: black">@Model.Padre.Email</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.Padre.Direccion.Urbanizacion, new { @class = "control-label col-md-3 col-sm-3 col-xs-12" })
+                                        <div class="col-md-3 col-sm-3 col-xs-12">
+                                            <label class="control-label" style="color: black">@Model.Padre.Direccion.Urbanizacion</label>
+                                        </div>
+                                        @Html.LabelFor(model => model.Padre.Direccion.Sector, new { @class = "control-label col-md-3 col-sm-3 col-xs-12" })
+                                        <div class="col-md-3 col-sm-3 col-xs-12">
+                                            <label class="control-label" style="color: black">@Model.Padre.Direccion.Sector</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.Padre.Direccion.Linea1, new { @class = "control-label col-md-3 col-sm-3 col-xs-12" })
+                                        <div class="col-md-3 col-sm-3 col-xs-12">
+                                            <label class="control-label" style="color: black">@Model.Padre.Direccion.Linea1</label>
+                                        </div>
+                                        @Html.LabelFor(model => model.Padre.Direccion.Linea2, new { @class = "control-label col-md-3 col-sm-3 col-xs-12" })
+                                        <div class="col-md-3 col-sm-3 col-xs-12">
+                                            @if (Model.Padre.Direccion.Linea2 == null)
+                                            {
+                                                <label class="control-label" style="color: black">-</label>
+                                            }
+                                            else
+                                            {
+                                                <label class="control-label" style="color: black">@Model.Padre.Direccion.Linea2</label>
+                                            }
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.Padre.Direccion.Ciudad, new { @class = "control-label col-md-3 col-sm-3 col-xs-12" })
+                                        <div class="col-md-3 col-sm-3 col-xs-12">
+                                            <label class="control-label" style="color: black">@Model.Padre.Direccion.Ciudad</label>
+                                        </div>
+                                        @Html.LabelFor(model => model.Padre.Direccion.EstadoProvincia.Pais.Nombre, new { @class = "control-label col-md-3 col-sm-3 col-xs-12" })
+                                        <div class="col-md-3 col-sm-3 col-xs-12">
+                                            <label class="control-label" style="color: black">@Model.Padre.Direccion.EstadoProvincia.Pais.Nombre</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.Padre.Direccion.EstadoProvincia.Nombre, new { @class = "control-label col-md-3 col-sm-3 col-xs-12" })
+                                        <div class="col-md-3 col-sm-3 col-xs-12">
+                                            <label class="control-label" style="color: black">@Model.Padre.Direccion.EstadoProvincia.Nombre</label>
+                                        </div>
+                                        @Html.LabelFor(model => model.Padre.Direccion.CodigoPostal, new { @class = "control-label col-md-3 col-sm-3 col-xs-12" })
+                                        <div class="col-md-3 col-sm-3 col-xs-12">
+                                            @if (Model.Padre.Direccion.CodigoPostal == null)
+                                            {
+                                                <label class="control-label" style="color: black">-</label>
+                                            }
+                                            else
+                                            {
+                                                <label class="control-label" style="color: black">@Model.Padre.Direccion.CodigoPostal</label>
+                                            }
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.Padre.Telefono, new { @class = "control-label col-md-3 col-sm-3 col-xs-12" })
+                                        <div class="col-md-3 col-sm-3 col-xs-12">
+                                            <label class="control-label" style="color: black">@Model.Padre.Telefono</label>
+                                        </div>
+                                        @Html.LabelFor(model => model.Padre.TelefonoAdicional, new { @class = "control-label col-md-3 col-sm-3 col-xs-12" })
+                                        <div class="col-md-3 col-sm-3 col-xs-12">
+                                            @if (Model.Padre.TelefonoAdicional == null)
+                                            {
+                                                <label class="control-label" style="color: black">-</label>
+                                            }
+                                            else
+                                            {
+                                                <label class="control-label" style="color: black">@Model.Padre.TelefonoAdicional</label>
+                                            }
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.Padre.Ocupacion, new { @class = "control-label col-md-3 col-sm-3 col-xs-12" })
+                                        <div class="col-md-3 col-sm-3 col-xs-12">
+                                            <label class="control-label" style="color: black">@Model.Padre.Ocupacion</label>
+                                        </div>
+                                        @Html.LabelFor(model => model.Padre.Profesion, new { @class = "control-label col-md-3 col-sm-3 col-xs-12" })
+                                        <div class="col-md-3 col-sm-3 col-xs-12">
+                                            @if (Model.Padre.Profesion == null)
+                                            {
+                                                <label class="control-label" style="color: black">-</label>
+                                            }
+                                            else
+                                            {
+                                                <label class="control-label" style="color: black">@Model.Padre.Profesion</label>
+                                            }
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.Padre.EmpresaTrabaja, new { @class = "control-label col-md-3 col-sm-3 col-xs-12" })
+                                        <div class="col-md-3 col-sm-3 col-xs-12">
+                                            @if (Model.Padre.EmpresaTrabaja == null)
+                                            {
+                                                <label class="control-label" style="color: black">-</label>
+                                            }
+                                            else
+                                            {
+                                                <label class="control-label" style="color: black">@Model.Padre.EmpresaTrabaja</label>
+                                            }
+                                        </div>
+                                        @Html.LabelFor(model => model.Padre.Edad, new { @class = "control-label col-md-3 col-sm-3 col-xs-12" })
+                                        <div class="col-md-3 col-sm-3 col-xs-12">
+                                            <label class="control-label" style="color: black">@Model.Padre.Edad</label>
+                                        </div>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                    <h4>Madre</h4>
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.Madre.PrimerNombre, new { @class = "control-label col-md-3 col-sm-3 col-xs-12" })
+                                        <div class="col-md-3 col-sm-3 col-xs-12">
+                                            <label class="control-label" style="color: black">@Model.Madre.PrimerNombre</label>
+                                        </div>
+                                        @Html.LabelFor(model => model.Madre.SegundoNombre, new { @class = "control-label col-md-3 col-sm-3 col-xs-12" })
+                                        <div class="col-md-3 col-sm-3 col-xs-12">
+                                            @if (Model.Madre.SegundoNombre == null)
+                                            {
+                                                <label class="control-label" style="color: black">-</label>
+                                            }
+                                            else
+                                            {
+                                                <label class="control-label" style="color: black">@Model.Madre.SegundoNombre</label>
+                                            }
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.Madre.PrimerApellido, new { @class = "control-label col-md-3 col-sm-3 col-xs-12" })
+                                        <div class="col-md-3 col-sm-3 col-xs-12">
+                                            <label class="control-label" style="color: black">@Model.Madre.PrimerApellido</label>
+                                        </div>
+                                        @Html.LabelFor(model => model.Madre.SegundoApellido, new { @class = "control-label col-md-3 col-sm-3 col-xs-12" })
+                                        <div class="col-md-3 col-sm-3 col-xs-12">
+                                            @if (Model.Madre.SegundoApellido == null)
+                                            {
+                                                <label class="control-label" style="color: black">-</label>
+                                            }
+                                            else
+                                            {
+                                                <label class="control-label" style="color: black">@Model.Madre.SegundoApellido</label>
+                                            }
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.Madre.CedulaRepresentante, new { @class = "control-label col-md-3 col-sm-3 col-xs-12" })
+                                        <div class="col-md-3 col-sm-3 col-xs-12">
+                                            <label class="control-label" style="color: black">@Model.Madre.CedulaRepresentante</label>
+                                        </div>
+                                        @Html.LabelFor(model => model.Madre.Email, new { @class = "control-label col-md-3 col-sm-3 col-xs-12" })
+                                        <div class="col-md-3 col-sm-3 col-xs-12">
+                                            <label class="control-label" style="color: black">@Model.Madre.Email</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.Madre.Direccion.Urbanizacion, new { @class = "control-label col-md-3 col-sm-3 col-xs-12" })
+                                        <div class="col-md-3 col-sm-3 col-xs-12">
+                                            <label class="control-label" style="color: black">@Model.Madre.Direccion.Urbanizacion</label>
+                                        </div>
+                                        @Html.LabelFor(model => model.Madre.Direccion.Sector, new { @class = "control-label col-md-3 col-sm-3 col-xs-12" })
+                                        <div class="col-md-3 col-sm-3 col-xs-12">
+                                            <label class="control-label" style="color: black">@Model.Madre.Direccion.Sector</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.Madre.Direccion.Linea1, new { @class = "control-label col-md-3 col-sm-3 col-xs-12" })
+                                        <div class="col-md-3 col-sm-3 col-xs-12">
+                                            <label class="control-label" style="color: black">@Model.Madre.Direccion.Linea1</label>
+                                        </div>
+                                        @Html.LabelFor(model => model.Madre.Direccion.Linea2, new { @class = "control-label col-md-3 col-sm-3 col-xs-12" })
+                                        <div class="col-md-3 col-sm-3 col-xs-12">
+                                            @if (Model.Madre.Direccion.Linea2 == null)
+                                            {
+                                                <label class="control-label" style="color: black">-</label>
+                                            }
+                                            else
+                                            {
+                                                <label class="control-label" style="color: black">@Model.Madre.Direccion.Linea2</label>
+                                            }
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.Madre.Direccion.Ciudad, new { @class = "control-label col-md-3 col-sm-3 col-xs-12" })
+                                        <div class="col-md-3 col-sm-3 col-xs-12">
+                                            <label class="control-label" style="color: black">@Model.Madre.Direccion.Ciudad</label>
+                                        </div>
+                                        @Html.LabelFor(model => model.Madre.Direccion.EstadoProvincia.Pais.Nombre, new { @class = "control-label col-md-3 col-sm-3 col-xs-12" })
+                                        <div class="col-md-3 col-sm-3 col-xs-12">
+                                            <label class="control-label" style="color: black">@Model.Madre.Direccion.EstadoProvincia.Pais.Nombre</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.Madre.Direccion.EstadoProvincia.Nombre, new { @class = "control-label col-md-3 col-sm-3 col-xs-12" })
+                                        <div class="col-md-3 col-sm-3 col-xs-12">
+                                            <label class="control-label" style="color: black">@Model.Madre.Direccion.EstadoProvincia.Nombre</label>
+                                        </div>
+                                        @Html.LabelFor(model => model.Madre.Direccion.CodigoPostal, new { @class = "control-label col-md-3 col-sm-3 col-xs-12" })
+                                        <div class="col-md-3 col-sm-3 col-xs-12">
+                                            @if (Model.Madre.Direccion.CodigoPostal == null)
+                                            {
+                                                <label class="control-label" style="color: black">-</label>
+                                            }
+                                            else
+                                            {
+                                                <label class="control-label" style="color: black">@Model.Madre.Direccion.CodigoPostal</label>
+                                            }
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.Madre.Telefono, new { @class = "control-label col-md-3 col-sm-3 col-xs-12" })
+                                        <div class="col-md-3 col-sm-3 col-xs-12">
+                                            <label class="control-label" style="color: black">@Model.Madre.Telefono</label>
+                                        </div>
+                                        @Html.LabelFor(model => model.Madre.TelefonoAdicional, new { @class = "control-label col-md-3 col-sm-3 col-xs-12" })
+                                        <div class="col-md-3 col-sm-3 col-xs-12">
+                                            @if (Model.Madre.TelefonoAdicional == null)
+                                            {
+                                                <label class="control-label" style="color: black">-</label>
+                                            }
+                                            else
+                                            {
+                                                <label class="control-label" style="color: black">@Model.Madre.TelefonoAdicional</label>
+                                            }
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.Madre.Ocupacion, new { @class = "control-label col-md-3 col-sm-3 col-xs-12" })
+                                        <div class="col-md-3 col-sm-3 col-xs-12">
+                                            <label class="control-label" style="color: black">@Model.Madre.Ocupacion</label>
+                                        </div>
+                                        @Html.LabelFor(model => model.Madre.Profesion, new { @class = "control-label col-md-3 col-sm-3 col-xs-12" })
+                                        <div class="col-md-3 col-sm-3 col-xs-12">
+                                            @if (Model.Madre.Profesion == null)
+                                            {
+                                                <label class="control-label" style="color: black">-</label>
+                                            }
+                                            else
+                                            {
+                                                <label class="control-label" style="color: black">@Model.Madre.Profesion</label>
+                                            }
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.Madre.EmpresaTrabaja, new { @class = "control-label col-md-3 col-sm-3 col-xs-12" })
+                                        <div class="col-md-3 col-sm-3 col-xs-12">
+                                            @if (Model.Madre.EmpresaTrabaja == null)
+                                            {
+                                                <label class="control-label" style="color: black">-</label>
+                                            }
+                                            else
+                                            {
+                                                <label class="control-label" style="color: black">@Model.Madre.EmpresaTrabaja</label>
+                                            }
+                                        </div>
+                                        @Html.LabelFor(model => model.Madre.Edad, new { @class = "control-label col-md-3 col-sm-3 col-xs-12" })
+                                        <div class="col-md-3 col-sm-3 col-xs-12">
+                                            <label class="control-label" style="color: black">@Model.Madre.Edad</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div role="tabpanel" class="tab-pane fade" id="tab_content3" aria-labelledby="profile-tab">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12">
+                                            Período Escolar
+                                        </label>
+                                        <div class="col-md-3 col-sm-3 col-xs-12">
+                                            <label class="control-label" style="color: black">@Model.PeriodoEscolar.Periodo</label>
+                                        </div>
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12">
+                                            Grado
+                                        </label>
+                                        <div class="col-md-3 col-sm-3 col-xs-12">
+                                            <label class="control-label" style="color: black">@Model.GradoEscolar.Grado</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Plantel de Procedencia</label>
+                                        <div class="col-md-8 col-sm-8 col-xs-12">
+                                            <label class="control-label" style="color: black">@Model.PlantelProcedencia</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div role="tabpanel" class="tab-pane fade" id="tab_content4" aria-labelledby="profile-tab">
+                                    <div class="form-group">
+                                        <div class="control-label col-md-4 col-sm-4 col-xs-12">
+                                            Alergías
+                                        </div>
+                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                            @if (Model.DatosMedicos.Alergias == null)
+                                            {
+                                                <label class="control-label" style="color: black">No posee</label>
+                                            }
+                                            else
+                                            {
+                                                <label class="control-label" style="color: black">@Model.DatosMedicos.Alergias</label>
+                                            }
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="control-label col-md-4 col-sm-4 col-xs-12">
+                                            Posee Servicios Médicos
+                                        </div>
+                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                            @if (Model.DatosMedicos.Alergias == null)
+                                            {
+                                                <label class="control-label" style="color: black">No posee</label>
+                                            }
+                                            else
+                                            {
+                                                <label class="control-label" style="color: black">@Model.DatosMedicos.Servicios</label>
+                                            }
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="control-label col-md-4 col-sm-4 col-xs-12">
+                                            Presenta Alguna Afectación de Salud
+                                        </div>
+                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                            @if (Model.DatosMedicos.Alergias == null)
+                                            {
+                                                <label class="control-label" style="color: black">No posee</label>
+                                            }
+                                            else
+                                            {
+                                                <label class="control-label" style="color: black">@Model.DatosMedicos.Afeccion</label>
+                                            }
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="control-label col-md-4 col-sm-4 col-xs-12">
+                                            Posee Tratamiento Médico
+                                        </div>
+                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                            @if (Model.DatosMedicos.Alergias == null)
+                                            {
+                                                <label class="control-label" style="color: black">No posee</label>
+                                            }
+                                            else
+                                            {
+                                                <label class="control-label" style="color: black">@Model.DatosMedicos.Tratamiento</label>
+                                            }
+                                        </div>
+                                    </div>
+                                </div>
+                                <div role="tabpanel" class="tab-pane fade" id="tab_content5" aria-labelledby="profile-tab">
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.DatosFamiliares.Hermanos, new { @class = "control-label col-md-4 col-sm-4 col-xs-12" })
+                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                            <label class="control-label" style="color: black">@Model.DatosFamiliares.Hermanos</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.DatosFamiliares.Ingresos, new { @class = "control-label col-md-4 col-sm-4 col-xs-12" })
+                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                            <label class="control-label" style="color: black">@Model.DatosFamiliares.Ingresos</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.DatosFamiliares.Personas, new { @class = "control-label col-md-4 col-sm-4 col-xs-12" })
+                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                            <label class="control-label" style="color: black">@Model.DatosFamiliares.Personas</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.DatosFamiliares.EstadoCivil, new { @class = "control-label col-md-4 col-sm-4 col-xs-12" })
+                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                            <label class="control-label" style="color: black">@Model.DatosFamiliares.EstadoCivil</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.DatosFamiliares.Religion, new { @class = "control-label col-md-4 col-sm-4 col-xs-12" })
+                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                            <label class="control-label" style="color: black">@Model.DatosFamiliares.Religion</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a href="@Url.Action("Aprobar", "Inscripciones")" class="btn btn-primary pull-right">Aprobar</a>
+                <a href="@Url.Action("Rechazar", "Inscripciones")" class="btn btn-danger pull-right">Rechazar</a>
+                <a href="@Url.Action("CuposSolicitados", "Inscripciones")" class="btn btn-warning pull-right">Volver</a>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+</div>

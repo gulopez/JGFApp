@@ -1,0 +1,31 @@
+﻿
+@{
+    ViewBag.Title = "Confirmación de correo";
+    Layout = "~/Views/Shared/_LayoutLogin.cshtml";
+}
+
+<div>
+    <div class="login_wrapper">
+        <div class="animate form login_form">
+            <section class="login_content">
+                <h1>Confirmación</h1>
+
+                <p>Su correo ha sido valido exitosamente <i class="fa fa-check-circle-o"></i></p>
+
+                <div class="clearfix"></div>
+
+                <div class="separator">
+                    <p class="change_link">
+                        <a href="@Url.Action("Index")" class="to_register"> Iniciar Sesion </a>
+                    </p>
+                    <br />
+
+                    <div>
+                        <h1><i class="fa fa-graduation-cap"></i> Colegio Jose Gil Fortoul</h1>
+                        <p><i class="fa fa-registered"></i> @DateTime.Now.ToString("yyyy") Todos los derechos reservados.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>

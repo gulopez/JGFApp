@@ -1,0 +1,49 @@
+﻿
+@{
+    ViewBag.Title = "Recuperar Contraseña";
+    Layout = "~/Views/Shared/_LayoutLogin.cshtml";
+}
+
+<div>
+    <div class="login_wrapperRecover">
+        <div class="animate form register_form">
+            <section class="login_contentRecover">
+                <form method="post" action="/Login/Recover">
+                    <h1>Olvidé mi contraseña</h1>
+                    <div>
+                        <input type="email" class="form-control" placeholder="Correo" name="mail" required="" />
+                    </div>
+                    <div>
+                        <button type="submit" class="btn btn-default">Cambiar contraseña</button>
+                    </div>
+
+                    <div class="clearfix"></div>
+
+                    @if (TempData["Error"] != null)
+                    {
+                        <div class="alert alert-danger alert-dismissible" role="alert">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            @TempData["Error"]
+                        </div>
+                    }
+
+                    <div class="separator">
+                        <p class="change_link">
+                            <a href="@Url.Action("Index")" class="to_register"> Iniciar Sesión </a>
+                        </p>
+
+                        <div class="clearfix"></div>
+                        <br />
+
+                        <div>
+                            <h1><i class="fa fa-graduation-cap"></i> Colegio Jose Gil Fortoul</h1>
+                            <p><i class="fa fa-registered"></i> @DateTime.Now.ToString("yyyy") Todos los derechos reservados.</p>
+                        </div>
+                    </div>
+                </form>
+            </section>
+        </div>
+    </div>
+</div>

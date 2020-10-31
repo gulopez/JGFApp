@@ -1,0 +1,86 @@
+﻿@model List<JoseGilFortoul.Models.Alumno>
+@{
+    ViewBag.Title = "Inscripcion";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    <div class="right_col" role="main">
+        <div class="">
+            <div class="page-title">
+                <div class="title_left">
+                    <h3>Inscripciones</h3>
+                </div>
+            </div>
+            <div class="col-md-12 col-xs-12"xxx>
+                <div class="x_panel">
+                    <div class="x_title">
+                        <form method="post" action="/Inscripciones/Inscripcion" class="form-horizontal form-label-left">
+                            <label class="col-md-2 col-xs-2" style="padding-top: 5px;">Buscar Alumno:</label>
+                            <div class="input-group col-md-10 col-xs-10">
+                                <input type="text" class="form-control" name="cedulaCarnet" placeholder="Cédula o Carnet">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-default" type="submit">Buscar</button>
+                                </span>
+                            </div>
+                        </form>
+                        <div class="clearfix"></div>
+
+                        @if (TempData["Error"] != null)
+                        {
+                            <div class="alert alert-danger alert-dismissible" role="alert">
+                                <button type="button" class="close" data-dismiss="alert" aria-label="close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                @TempData["Error"]
+                            </div>
+                        }
+                    </div>
+                    <div class="x_content">
+                        <br />
+                        <div class="table-responsive">
+                            @if (Model.Count > 0)
+                            {
+                                <table class="table table-striped jambo_table bulk_action">
+                                    <thead>
+                                        <tr class="headings">
+                                            <th class="column-title">Nombres </th>
+                                            <th class="column-title">Apellidos </th>
+                                            <th class="column-title">Sexo </th>
+                                            <th class="column-title">Período </th>
+                                            <th class="column-title">Grado </th>
+                                            <th class="column-title no-link last">
+                                                <span class="nobr">Acción</span>
+                                            </th>
+                                            <th class="bulk-actions" colspan="7">
+                                                <a class="antoo" style="color:#fff; font-weight:500;">Bulk Actions ( <span class="action-cnt"> </span> ) <i class="fa fa-chevron-down"></i></a>
+                                            </th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        @foreach (var item in Model)
+                                        {
+                                            <tr class="even pointer">
+                                                <td class=" ">@item.PrimerNombre @item.SegundoNombre</td>
+                                                <td class=" ">@item.PrimerApellido @item.SegundoApellido</td>
+                                                <td class=" ">@item.Sexo</td>
+                                                <td class=" ">@item.PeriodoEscolar.Periodo</td>
+                                                <td class=" ">@item.GradoEscolar.Grado</td>
+                                                <td class="last">
+                                                    <a href="@Url.Action("ProcesarInscripcion", "Inscripciones", new { id = item.Id })" style="margin-left: 3px; margin-right: 3px;"><i class="fa fa-paste"></i></a>
+                                                </td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            }
+                            else
+                            {
+                                <h3>No se ha encontrado ningun alumno</h3>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>

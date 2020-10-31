@@ -1,0 +1,83 @@
+﻿@model JoseGilFortoul.Models.Alumno
+
+@{
+    ViewBag.Title = "PreInscripcion";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="right_col" role="main">
+    <div class="">
+        <div class="col-md-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>Preinscribir Alumno</h2>
+                    <div class="clearfix"></div>
+
+                    @if (TempData["Error"] != null)
+                    {
+                        <div class="alert alert-danger alert-dismissible" role="alert">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            @TempData["Error"]
+                        </div>
+                    }
+                </div>
+                <div class="x_content">
+                    <br />
+                    <form method="post" action="/Inscripciones/PreInscripcion" class="form-horizontal form-label-left">
+                        <div class="form-group">
+                            <input type="hidden" name="id" value="@Model.Id" />
+                            <input type="hidden" name="idRepresentante" value="@Model.IdRepresentante" />
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12">Nombre Completo</label>
+                            <div class="col-md-9 col-sm-9 col-xs-12">
+                                <label class="control-label" style="color: black">@Model.PrimerNombre @Model.SegundoNombre @Model.PrimerApellido @Model.SegundoApellido</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12">Cedula o Carnet de Estudiante</label>
+                            <div class="col-md-9 col-sm-9 col-xs-12">
+                                <label class="control-label" style="color: black">@Model.CedulaAlumno</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12">Grado a Cursar</label>
+                            <div class="col-md-3 col-sm-3 col-xs-12">
+                                <select name="idGrado" class="form-control">
+                                    <option>Seleccione Curso</option>
+                                    @foreach (var item in ViewBag.Cursos)
+                                    {
+                                        <option value="@item.Id">@item.Grado</option>
+                                    }
+                                </select>
+                            </div>
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12">Período Escolar</label>
+                            <div class="col-md-3 col-sm-3 col-xs-12">
+                                <select name="idPeriodo" class="form-control">
+                                    <option>Seleccione Período</option>
+                                    @foreach (var item in ViewBag.Periodos)
+                                    {
+                                        <option value="@item.Id">@item.Periodo</option>
+                                    }
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12">Comentarios</label>
+                            <div class="col-md-9 col-sm-9 col-xs-12">
+                                <textarea class="form-control" name="comentario" rows="3"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="ln_solid"></div>
+                        <div class="form-group">
+                            <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
+                                <button type="submit" class="btn btn-primary">Guardar</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

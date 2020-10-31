@@ -1,0 +1,47 @@
+﻿Project: JGFWeb    Server: cutelittlefavors.visualstudio.com    Query: All Workitems Flat    List type: Flat    ,,,,,,
+ID,Work Item Type,Title,State,Area Path,Parent,Tags
+423,Product Backlog Item,Pantalla de Principal o de Inicio,New,\Portal Publico,,Fase 2
+427,Product Backlog Item,Pantalla de Inicio de Sesión,New,\Portal Publico,450,Fase 1
+428,Product Backlog Item,Olvidé mi contraseña,New,\Portal Publico,452,Fase 1
+430,Product Backlog Item,Pantalla para Solicitar Cupo en el Colegio,New,\Representantes,457,Fase 1
+431,Product Backlog Item,Pantalla Principal Representantes,New,\Representantes,,Fase 1
+432,Product Backlog Item,Pantalla Preinscripción,New,\Representantes,460,Fase 1
+433,Product Backlog Item,Formulario de Preinscripción,New,\Representantes,459,Fase 1
+434,Product Backlog Item,Planilla de Inscripcion,New,\Representantes,460,Fase 1
+435,Product Backlog Item,Pantalla de Contrato de Servicio,New,\Administracion,,Fase 1
+436,Product Backlog Item,Pantalla de Editar Alumnos,New,\Representantes,463,Fase 1
+437,Product Backlog Item,Navegacion Para El Area De Representantes,New,\Representantes,470,Fase 1
+438,Product Backlog Item,Pantalla de la opción “Realizar Pago”,New,\Representantes,465,Fase 1
+439,Product Backlog Item,Pantalla de historial de Pagos,New,\Representantes,467,Fase 1
+440,Product Backlog Item,Imprimir Facturas,New,\Administracion,,Fase 1
+442,Product Backlog Item,Pantalla de Cambio de Contraseña,New,\Portal Publico,452,Fase 1
+443,Product Backlog Item,Pantalla de Perfiles del Representante,New,\Representantes,469,Fase 1
+444,Product Backlog Item,Pantalla de Configuraciones adicionales,New,\Representantes,,Fase 2
+445,Product Backlog Item,Navegación Global para El Area de Administracion,New,\Administracion,470,Fase 1
+446,Product Backlog Item,Pantalla Para Procesar Solicitud de Cupos,New,\Administracion,457,Fase 1
+447,Product Backlog Item,Procesar Preinscripciones,New,\Administracion,459,Fase 1
+449,Epic,Usuarios se pueden Registrar una cuenta.,New,\Portal Publico,,Fase 1
+450,Feature,Inicio de Sesión,New,\Portal Publico,449,Fase 1
+451,Feature,Registro de Usuarios,New,\Portal Publico,449,Fase 1
+452,Feature,Olvide Contrasena,New,\Portal Publico,449,Fase 1
+453,Feature,Use Social Media for Login,New,\Portal Publico,449,Fase 1
+454,Product Backlog Item,Pantalla De Registro,New,\Portal Publico,451,Fase 1
+455,Product Backlog Item,Use Social Media for Login,New,\Portal Publico,453,Fase 1
+456,Epic,Representantes pueden solicitar Cupo en el Colegio,New,\Representantes,,Fase 1
+457,Feature,Planilla De solicitar Cupo,New,\Representantes,456,Fase 1
+458,Epic,Usuario puede Preinscribirse,New,\Representantes,,Fase 1
+459,Feature,Proceso de Pre-inscripcion,New,\Representantes,458,Fase 1
+460,Feature,Proceso De Inscripcion,New,\Representantes,461,Fase 1
+461,Epic,Usuario puede Inscribirse,New,\Representantes,,Fase 1
+462,Epic,El Representante puede Editar Alumnos,New,\Representantes,,Fase 1
+463,Feature,Representante Edicion De alumno,New,\Representantes,462,Fase 1
+464,Epic,Representante podra registrar pagos,New,\Representantes,,Fase 1
+465,Feature,Registro de Pagos,New,\Representantes,464,Fase 1
+466,Epic,Representante podra ver Historial De Pagos,New,\Representantes,,Fase 1
+467,Feature,Representante - Historial Del Pagos,New,\Representantes,466,Fase 1
+468,Epic,El representante podra editar su Perfil,New,\Representantes,,Fase 1
+469,Feature,Editar Perfil Del Representante,New,\Representantes,468,Fase 1
+470,Epic,Navegacion del sitio,New,\Portal Publico,,Fase 1
+471,Feature,Verificacion de Pagos Realizados,New,\Administracion,464,Fase 1
+472,Product Backlog Item,Pantalla Administrativa de Verificacion de Pagos,New,\Administracion,471,Fase 1
+473,Product Backlog Item,Mostrar Lista De Alumnos a preinscribir,New,\Representantes,459,Fase 1

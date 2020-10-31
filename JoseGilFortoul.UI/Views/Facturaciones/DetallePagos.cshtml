@@ -1,0 +1,61 @@
+﻿@model  List<JoseGilFortoul.Models.PagoMaster>
+
+@{
+    ViewBag.Title = "Detalle de Pagos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="right_col" role="main">
+    <div class="">
+        <div class="clearfix"></div>
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>Detalle de Pagos</h2>
+                    <div class="clearfix"></div>
+                </div>
+
+                <div class="x_content">
+                    <div class="table-responsive">
+                        @if (Model.Count > 0)
+                        {
+                            <table class="table table-striped jambo_table bulk_action">
+                                <thead>
+                                    <tr class="headings">
+                                        <th class="column-title">Nombres </th>
+                                        <th class="column-title">Apellidos </th>
+                                        <th class="column-title">Período Escolar </th>
+                                        <th class="column-title">Concepto de Pago </th>
+                                        <th class="column-title">Monto </th>
+                                        <th class="column-title">Fecha de Pago </th>
+                                        <th class="bulk-actions" colspan="7">
+                                            <a class="antoo" style="color:#fff; font-weight:500;">Bulk Actions ( <span class="action-cnt"> </span> ) <i class="fa fa-chevron-down"></i></a>
+                                        </th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr class="even pointer">
+                                            <td class=" ">@item.Alumno.PrimerNombre @item.Alumno.SegundoNombre</td>
+                                            <td class=" ">@item.Alumno.PrimerApellido @item.Alumno.SegundoApellido</td>
+                                            <td class=" ">@item.PeriodoEscolar.Periodo</td>
+                                            <td class=" ">@item.ConceptoPago.Nombre</td>
+                                            <td class=" ">@item.Monto</td>
+                                            <td class=" ">@item.FechaPago.ToShortDateString()</td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        }
+                        else
+                        {
+                            <h3>No posee pagos registrados</h3>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

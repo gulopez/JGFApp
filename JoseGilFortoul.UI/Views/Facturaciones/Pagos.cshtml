@@ -1,0 +1,56 @@
+﻿@model JoseGilFortoul.Models.Alumno
+
+@{
+    ViewBag.Title = "Realizar Pagos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="right_col" role="main">
+    <div class="">
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                    <div class="x_title">
+                        <h2>Realizar Pago</h2>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content">
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.PaisDeNacimiento, new { @class = "control-label col-md-4 col-sm-4 col-xs-12" })
+                            <div class="col-md-3 col-sm-3 col-xs-12">
+                                @Html.DropDownListFor(model => model.PaisDeNacimiento, new SelectList(ViewBag.MetodosPago, "Id", "Name", Model.PaisDeNacimiento), new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.PaisDeNacimiento, "", new { @class = "text-danger" })
+                                @Html.LabelFor(model => model.DatosFamiliares.Hermanos, new { @class = "control-label col-md-4 col-sm-4 col-xs-12" })
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    @Html.TextBoxFor(model => model.DatosFamiliares.Hermanos, new { @class = "form-control col-md-3 col-sm-3 col-xs-12" })
+                                    @Html.ValidationMessageFor(model => model.DatosFamiliares.Hermanos, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.DatosFamiliares.Ingresos, new { @class = "control-label col-md-4 col-sm-4 col-xs-12" })
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    @Html.TextBoxFor(model => model.DatosFamiliares.Ingresos, new { @class = "form-control col-md-3 col-sm-3 col-xs-12" })
+                                    @Html.ValidationMessageFor(model => model.DatosFamiliares.Ingresos, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.DatosFamiliares.Personas, new { @class = "control-label col-md-4 col-sm-4 col-xs-12" })
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    @Html.TextBoxFor(model => model.DatosFamiliares.Personas, new { @class = "form-control col-md-3 col-sm-3 col-xs-12" })
+                                    @Html.ValidationMessageFor(model => model.DatosFamiliares.Personas, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.DatosFamiliares.EstadoCivil, new { @class = "control-label col-md-4 col-sm-4 col-xs-12" })
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    @Html.DropDownListFor(model => model.DatosFamiliares.EstadoCivil, new SelectList(ViewBag.EstadoCivil, "Nombre", "Nombre", Model.DatosFamiliares.EstadoCivil), new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.DatosFamiliares.EstadoCivil, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

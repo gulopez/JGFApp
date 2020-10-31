@@ -1,0 +1,101 @@
+﻿@model List<JoseGilFortoul.Models.Alumno>
+
+@{
+    ViewBag.Title = "Inicio - PreInscripcion";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="right_col" role="main">
+    <div class="">
+        <div class="pull-right" style="margin-right: 1%; margin-top: 2%; margin-bottom: 2%;">
+            <a href="@Url.Action("Create", "Alumnos")" class="btn btn-primary">Agregar Alumno</a>
+        </div>
+        <div class="clearfix"></div>
+
+        @if (TempData["Success"] != null)
+        {
+            <div class="alert alert-info alert-dismissible" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                @TempData["Success"]
+            </div>
+        }
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    @if (ViewData["Perfil"].ToString() == "Administrador")
+                    {
+                        <h2>Alumnos Preinscritos</h2>
+                    }
+                    else
+                    {
+                        <h2>Alumnos del Representante</h2>
+                    }
+                    <div class="clearfix"></div>
+                </div>
+
+                <div class="x_content">
+                    <div class="table-responsive">
+                        @if (Model.Count > 0)
+                        {
+                            <table class="table table-striped jambo_table bulk_action">
+                                <thead>
+                                    <tr class="headings">
+                                        <th class="column-title">Nombres </th>
+                                        <th class="column-title">Apellidos </th>
+                                        <th class="column-title">Sexo </th>
+                                        <th class="column-title">Cedula / Carnet </th>
+                                        <th class="column-title">Fecha de Nacimiento </th>
+                                        <th class="column-title no-link last">
+                                            <span class="nobr">Acción</span>
+                                        </th>
+                                        <th class="bulk-actions" colspan="7">
+                                            <a class="antoo" style="color:#fff; font-weight:500;">Bulk Actions ( <span class="action-cnt"> </span> ) <i class="fa fa-chevron-down"></i></a>
+                                        </th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr class="even pointer">
+                                            <td class=" ">@item.PrimerNombre</td>
+                                            <td class=" ">@item.PrimerApellido</td>
+                                            <td class=" ">@item.Sexo</td>
+                                            <td class=" ">@item.CedulaAlumno</td>
+                                            <td class=" ">@item.FechaDeNacimiento.ToShortDateString()</td>
+                                            <td class=" last">
+                                                @if (ViewData["Perfil"].ToString() == "Administrador")
+                                                {
+                                                    <a href="@Url.Action("Inscripcion", "Inscripciones", new { id = item.Id })" style="margin-left: 5px; margin-right: 5px;"><i class="fa fa-pencil-square-o"></i></a>
+                                                }
+                                                else
+                                                {
+                                                    <a href="@Url.Action("Update", "Alumnos", new { id = item.Id })" style="margin-left: 5px; margin-right: 5px;"><i class="fa fa-edit"></i></a>
+                                                    <a href="@Url.Action("PreInscripcion", "Inscripciones", new { id = item.Id })"><i class="fa fa-list-alt"></i></a>
+                                                }
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        }
+                        else
+                        {
+                            if (ViewData["Perfil"].ToString() == "Administrador")
+                            {
+                                <h3>No existen alumnos preinscritos</h3>
+                            }
+                            else
+                            {
+                                <h3>No posee alumnos registrados</h3>
+                            }
+                            
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

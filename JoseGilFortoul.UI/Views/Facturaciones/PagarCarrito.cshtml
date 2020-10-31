@@ -1,0 +1,110 @@
+﻿@model List<JoseGilFortoul.Models.CarritoCompra>
+@{
+    ViewBag.Title = "Pagar Carrito";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="right_col" role="main">
+    <div class="">
+        <div class="col-md-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>Realizar Pagos</h2>
+                    <div class="clearfix"></div>
+
+                    @if (TempData["Error"] != null)
+                    {
+                        <div class="alert alert-danger alert-dismissible" role="alert">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            @TempData["Error"]
+                        </div>
+                    }
+                    @if (TempData["Success"] != null)
+                    {
+                        <div class="alert alert-info alert-dismissible" role="alert">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            @TempData["Success"]
+                        </div>
+                    }
+                </div>
+                <div class="x_content">
+                    <br />
+                    <form method="post" action="/Facturaciones/PagarCarrito" class="form-horizontal form-label-left">
+                        <div class="x_content">
+                            <div class="table-responsive">
+                                @if (Model.Count > 0)
+                                {
+                                    <table class="table table-striped jambo_table bulk_action">
+                                        <thead>
+                                            <tr class="headings">
+                                                <th class="column-title">Alumno </th>
+                                                <th class="column-title">Concepto </th>
+                                                <th class="column-title">Preríodo Escolar </th>
+                                                <th class="column-title">Monto a Pagar </th>
+                                                <th class="column-title">Acción </th>
+                                            </tr>
+                                        </thead>
+
+                                        <tbody>
+                                            @foreach (var item in Model)
+                                            {
+                                                <tr class="even pointer">
+                                                    <td class=" ">@item.Alumno.PrimerApellido @item.Alumno.SegundoApellido, @item.Alumno.PrimerNombre @item.Alumno.SegundoNombre</td>
+                                                    <td class=" ">@item.ConceptoPago.Nombre</td>
+                                                    <td class=" ">@item.PeriodoEscolar.Periodo</td>
+                                                    <td class=" ">@item.MontoPagar.ToString("N")</td>
+                                                    <td class="last"><a href="@Url.Action("EliminarCarrito", "Facturaciones", new { id = item.Id })" style="margin-left: 3px; margin-right: 3px;"><i class="fa fa-trash-o"></i></a></td>
+                                                </tr>
+                                            }
+                                            <tr>
+                                                <td style="text-align: right;" colspan="3">Total a Pagar</td>
+                                                <td>@ViewBag.Total</td>
+                                                <td></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                }
+                                else
+                                {
+                                    <h3>No posee pagos agregados al carrito</h3>
+                                }
+                            </div>
+                        </div>
+                        <div id="seleccionPago">
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12">Forma de Pago</label>
+                                <div class="col-md-3 col-sm-3 col-xs-12">
+                                    <select name="idFormaPago" class="form-control">
+                                        <option>Selección Forma de Pago</option>
+                                        @foreach (var item in ViewBag.FormaPago)
+                                        {
+                                            <option value="@item.Id">@item.Tipo</option>
+                                        }
+                                    </select>
+                                </div>
+                                <div class="col-md-2 col-sm-2 col-xs-12">
+                                    <input class="form-control" type="text" name="referencia" placeholder="Referencia" />
+                                </div>
+                                <div class="col-md-2 col-sm-2 col-xs-12">
+                                    <input class="form-control" type="number" name="monto" placeholder="Monto" />
+                                </div>
+                                <div class="col-md-2 col-sm-2 col-xs-12">
+                                    <button type="submit" class="btn btn-primary">Agregar Pago</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="right_col" role="main">
+    @{
+        Html.RenderAction("_ListaPago", "Facturaciones");
+    }
+</div>
